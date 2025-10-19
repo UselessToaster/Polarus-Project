@@ -1,5 +1,6 @@
-"homepage": "https://UselessToaster.github.io/Polarus-Project"
+
 {
+  "homepage": "https://UselessToaster.github.io/Polarus-Project"
   "name": "polarus",
   "private": true,
   "version": "0.0.0",
