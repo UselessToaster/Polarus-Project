@@ -231,6 +231,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ data, zipCode, onViewMap }
       <div className="animate-fade-in">
         {renderContent()}
       </div>
+      
     </div>
   );
 };
