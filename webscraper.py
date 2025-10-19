@@ -52,5 +52,42 @@ def get_website(url):
         return response.text
     else:
         print(f"Failed to retrieve website: {url}")
+
+
+def smooth_data(big_dict):
+    #format bill data
+    bill_data = {}
+    for bill, details in big_dict.items():
+        caption = details[1]
+        bill_data[bill] = {
+            'caption': caption,
+        }
+
+    #format legislator data
+    house_mem_pg = 'https://capitol.texas.gov/members/members.aspx?Chamber=H'
+    sentate_mem_pg = 'https://capitol.texas.gov/Members/Members.aspx?Chamber=S'
+
+    house_legislators = get_legislator_info(house_mem_pg)
+    senate_legislators = get_legislator_info(sentate_mem_pg)
+
+    legislators = {} #name : chamber
+    for name in house_legislators:
+        legislators[name] = 'House'
+    for name in senate_legislators:
+        legislators[name] = 'Senate'
+
+
+def get_legislator_info(url):
+    html_content = get_website(url)
+    soup = BeautifulSoup(html_content, 'html.parser')
+    tables = soup.find_all("table", id="dataListMembers")
+
+    legislators = []
+    for table in tables:
+        member_tag = table.find_all('a')
+        for tag in member_tag:
+            name = tag.text.strip()
+            legislators.append(name)
         return None
+
 main()
