@@ -1,0 +1,7 @@
+{
+  "name": "Polarus",
+  "description": "An application to help users view their voting ballots, find polling places, and understand ballot measures based on their location. Polarus provides simplified explanations of bills and sends reminders for important voting deadlines.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
