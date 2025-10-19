@@ -19,5 +19,6 @@ The script requires the following Python packages:
 ### Install the required packages:
 To install the dependencies, you can use the following command:
 ```bash
-pip install -r requirements.txt
+pip install -r ws-requirements.txt
 ```
+
